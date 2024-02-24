@@ -1,0 +1,48 @@
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 40px auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    line-height: 2;
+}
+.productName {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.productImageContainer {
+    flex: 1;
+    max-width: 400px;
+}
+
+.productDetailsContainer {
+    flex: 2;
+    padding-left: 80px;
+}
+
+.productPrice {
+    color: #0c108d;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.productCategory {
+    font-size: 1em;
+}
+.productBrand {
+    font-size: 1.5em;
+}
+.addToCartContainer {
+    margin-bottom: 15px;
+}
+
+.stockZero {
+    color: red;
+}

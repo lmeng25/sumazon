@@ -9,14 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "firebase": "^10.7.2",
+    "mongoose": "^8.1.1",
+    "next": "^14.1.1-canary.37",
+    "next-auth": "^5.0.0-beta.13",
+    "persist": "^0.2.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "react-hook-form": "^7.50.1",
+    "react-hot-toast": "^2.4.1",
+    "react-query": "^3.39.3",
+    "swr": "^2.2.5",
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/react": "^18",
-    "@types/react-dom": "^18"
+    "@types/react-dom": "^18",
+    "mini-css-extract-plugin": "^2.8.0",
+    "typescript": "^5"
   }
 }
