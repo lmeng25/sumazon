@@ -1,8 +1,8 @@
 SUMAZON is an E-Commerce website that implemented in a three-layer software architecture manner.
 
-## GETTING STARTED
+# GETTING STARTED
 
-# Installation
+## Installation
 
 Requirements: Node.js, Git. You will need to install these requirements on your local machine
 
