@@ -33,7 +33,7 @@ const orderSchema = new mongoose.Schema(
 
 export type Order = {
     _id?: string;
-    user?: User;
+    user?: { name: string };
     orderItems: [OrderItem];
     shippingAddress: string;
     totalPrice: number;
