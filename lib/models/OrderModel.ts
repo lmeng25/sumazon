@@ -16,7 +16,11 @@ const orderSchema = new mongoose.Schema(
                     ref: 'Product',
                     required: true,
                 },
+                name: { type: String, required: true },
+                slug: { type: String, required: true },
                 quantity: { type: Number, required: true },
+                image: { type: String, required: true },
+                price: { type: Number, required: true },
             },
         ],
         shippingAddress: { type: String, required: true },
@@ -48,6 +52,6 @@ export type OrderItem = {
 };
 
 const OrderModel =
-    mongoose.models.Order || mongoose.model('Orders', orderSchema);
+    mongoose.models.Orders || mongoose.model('Orders', orderSchema);
 
 export default OrderModel;
