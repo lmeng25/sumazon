@@ -27,6 +27,7 @@ export default function useCartService() {
     return {
         items,
         total: roundToTwo(total),
+        shippingAddress,
         initializeCart: () => useCartStore.setState(initialState),
         increaseQuantity: (item: OrderItem) => {
             const existingItem = items.find((i) => i.slug === item.slug);
