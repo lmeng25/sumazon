@@ -46,6 +46,8 @@ export const config = {
                     email: user._doc.email,
                     name: user._doc.name,
                     isAdmin: user._doc.isAdmin,
+                    address: user._doc.address,
+                    number: user._doc.number,
                 };
             }
             if (trigger === 'update' && session) {
@@ -53,6 +55,8 @@ export const config = {
                     ...token.user,
                     email: session.user.email,
                     name: session.user.name,
+                    address: session.user.address,
+                    number: session.user.number,
                 };
             }
             return token;
