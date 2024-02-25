@@ -1,6 +1,6 @@
 'use client';
 import { useCartStore } from '@/lib/hooks/useCartStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { SWRConfig } from 'swr';
 
@@ -9,9 +9,10 @@ export default function ClientProviders({
 }: {
     children: React.ReactNode;
 }) {
-    useEffect(() => {
+    const updateStore = () => {
         useCartStore.persist.rehydrate();
-    }, []);
+    };
+
     return (
         <SWRConfig
             value={{
