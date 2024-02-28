@@ -14,7 +14,6 @@ export default async function ProductList() {
                 {products.map((product) => (
                     <div key={product.slug} className="productItem">
                         <h2>{product.name}</h2>
-                        <div>{product.brand}</div>
                         <div>
                             <Link href={`/product/${product.slug}`}>
                                 <Image
@@ -26,8 +25,6 @@ export default async function ProductList() {
                             </Link>
                         </div>
                         <div className="productPrice">{`$${product.price}`}</div>{' '}
-                        <div>Category: {product.category}</div>
-                        <div>{product.description}</div>
                         <div
                             className="stockAvailability"
                             style={{
@@ -35,7 +32,9 @@ export default async function ProductList() {
                                     product.quantity === 0 ? 'red' : 'inherit',
                             }}
                         >
-                            Available in stock: {product.quantity}
+                            {product.quantity === 0
+                                ? 'Out of stock'
+                                : 'In stock'}
                         </div>
                     </div>
                 ))}
