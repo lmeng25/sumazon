@@ -7,7 +7,11 @@ export const SearchBox = () => {
     return (
         <form action="/search" method="GET">
             <div className="join">
-                <input placeholder="Search" defaultValue={name} name="name" />
+                <input
+                    placeholder="Search by name"
+                    defaultValue={name}
+                    name="name"
+                />
                 <button>Search</button>
             </div>
         </form>
