@@ -16,9 +16,22 @@ const getLatestN = async (n: number) => {
     return products as Product[];
 };
 
+const getByName = async (name: string) => {
+    await mongodb();
+    const regex = new RegExp(name, 'i');
+    const products = await ProductModel.find({
+        name: { $regex: regex },
+    }).lean();
+    if (products.length === 0) {
+        return [];
+    }
+    return products as Product[];
+};
+
 const productFilter = {
     getBySlug,
     getLatestN,
+    getByName,
 };
 
 export default productFilter;
