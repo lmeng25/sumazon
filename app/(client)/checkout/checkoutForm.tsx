@@ -25,44 +25,28 @@ const CheckoutForm = () => {
         setValue('address', shippingAddress);
     }, [shippingAddress, setValue]);
 
-    const onSubmit = (data: any) => {
+    const onSubmit = async (data: any) => {
         updateShippingAddress(data.address);
-        clearCart();
-        router.push('/');
-    };
-
-    const { trigger: placeOrder, isMutating: isPlacing } = useSWRMutation(
-        `/api/orders/mine`,
-        async (url) => {
-            const res = await fetch('/api/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    items,
-                    total,
-                    shippingAddress,
-                }),
-            });
-            const data = await res.json();
-            if (res.ok) {
-                clearCart();
-                toast.success('Order placed successfully');
-                return router.push(`/order/${data.order._id}`);
-            } else {
-                toast.error(data.message);
-            }
+        const orderResponse = await fetch('/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                items,
+                total,
+                shippingAddress: data.address,
+            }),
+        });
+        const orderData = await orderResponse.json();
+        if (orderResponse.ok) {
+            clearCart();
+            toast.success('Order placed successfully');
+            router.push(`/order/${orderData.order._id}`);
+        } else {
+            toast.error(orderData.message);
         }
-    );
-
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return <></>;
-
+    };
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -74,14 +58,12 @@ const CheckoutForm = () => {
                     id="address"
                     type="text"
                 />
-                {errors.address && <p>{errors.address.message}</p>}
             </div>
             <div>
-                <strong>Total:</strong> ${total}
+                <strong>Total:</strong> $
+                {items.reduce((acc, i) => acc + i.price * i.quantity, 0)}
             </div>
-            <button onClick={() => placeOrder()} disabled={isPlacing}>
-                Submit Order
-            </button>
+            <button>Submit Order</button>
         </form>
     );
 };
