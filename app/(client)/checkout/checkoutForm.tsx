@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useCartService from '@/lib/hooks/useCartStore';
-import useSWRMutation from 'swr/mutation';
 import toast from 'react-hot-toast';
 
 const CheckoutForm = () => {
