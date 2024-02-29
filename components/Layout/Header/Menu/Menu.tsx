@@ -37,6 +37,7 @@ export default function Menu() {
                 {session && session.user ? (
                     <div>
                         Hi, {session.user.name}{' '}
+                        <Link href="/order-list">My Orders</Link>
                         <Link href="/profile">Profile</Link>
                         <button onClick={signoutHandler}>Sign Out</button>
                     </div>
