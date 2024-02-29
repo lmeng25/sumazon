@@ -17,6 +17,27 @@ export const GET = auth(async (req: any) => {
 }) as any;
 
 export const POST = auth(async (req: any) => {
+    const body = await req.json();
+    const { name, slug, image, price, category, brand, quantity, description } =
+        body;
+
+    if (
+        !name ||
+        !slug ||
+        !image ||
+        !price ||
+        !category ||
+        !brand ||
+        quantity == null ||
+        !description
+    ) {
+        return Response.json(
+            { message: 'Missing required fields' },
+            {
+                status: 400,
+            }
+        );
+    }
     if (!req.auth || !req.auth.user?.isAdmin) {
         return Response.json(
             { message: 'unauthorized' },
@@ -27,14 +48,14 @@ export const POST = auth(async (req: any) => {
     }
     await mongodb();
     const product = new ProductModel({
-        name: 'new product',
-        slug: 'new-product' + Math.random(),
-        image: '/images/shirt1.jpg',
-        price: Math.random() * 100,
-        category: 'shirt',
-        brand: 'new brand',
-        countInStock: 20,
-        description: 'new product description',
+        name,
+        slug,
+        image,
+        price,
+        category,
+        brand,
+        quantity,
+        description,
     });
     try {
         await product.save();
