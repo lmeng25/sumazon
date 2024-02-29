@@ -41,7 +41,6 @@ export const POST = auth(async (request: any) => {
             items: dbOrderItems,
             totalPrice,
             shippingAddress: payload.shippingAddress,
-            paymentMethod: payload.paymentMethod,
             user: user._id,
         });
 
