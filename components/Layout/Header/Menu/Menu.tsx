@@ -39,6 +39,9 @@ export default function Menu() {
                         Hi, {session.user.name}{' '}
                         <Link href="/order-list">My Orders</Link>
                         <Link href="/profile">Profile</Link>
+                        {session.user.isAdmin && (
+                            <Link href="/admin/products">Admin Menu</Link>
+                        )}
                         <button onClick={signoutHandler}>Sign Out</button>
                     </div>
                 ) : (
