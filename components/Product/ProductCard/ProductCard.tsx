@@ -36,7 +36,6 @@ export default function ProductCard({ product }: { product: Product }) {
                         product.quantity === 0 ? 'stockZero' : ''
                     }`}
                 >
-                    {/* Available in stock: {product.quantity} */}
                     {product.quantity === 0 ? 'Out of stock' : 'In stock'}
                 </div>
                 {product.quantity > 0 && (

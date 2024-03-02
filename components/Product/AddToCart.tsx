@@ -21,11 +21,26 @@ export default function AddToCart({ item }: { item: OrderItem }) {
 
     return inCartItem ? (
         <div>
-            <button onClick={() => reduceQuantity(inCartItem)}>-1</button>
-            {inCartItem.quantity}
-            <button onClick={() => increaseQuantity(inCartItem)}>+1</button>
+            <button
+                onClick={() => reduceQuantity(inCartItem)}
+                style={{ cursor: 'pointer', margin: '0 10px' }}
+            >
+                -1
+            </button>
+            <span>Quantity: {inCartItem.quantity}</span>
+            <button
+                onClick={() => increaseQuantity(inCartItem)}
+                style={{ cursor: 'pointer', margin: '0 10px' }}
+            >
+                +1
+            </button>
         </div>
     ) : (
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button
+            onClick={handleAddToCart}
+            style={{ cursor: 'pointer', padding: '10px 20px' }}
+        >
+            Add to Cart
+        </button>
     );
 }
