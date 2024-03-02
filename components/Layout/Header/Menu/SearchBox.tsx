@@ -6,13 +6,16 @@ export const SearchBox = () => {
     const name = searchParams.get('name') || '';
     return (
         <form action="/search" method="GET">
-            <div className="join">
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <input
                     placeholder="Search by name"
                     defaultValue={name}
                     name="name"
+                    style={{ padding: '5px' }}
                 />
-                <button>Search</button>
+                <button style={{ padding: '5px 10px', cursor: 'pointer' }}>
+                    Search
+                </button>
             </div>
         </form>
     );
