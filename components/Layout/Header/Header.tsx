@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Menu from './Menu/Menu';
 import { SearchBox } from './Menu/SearchBox';
 import Image from 'next/image';
-import './Header.css';
 
 export default function Header() {
     return (
