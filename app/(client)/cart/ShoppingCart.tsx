@@ -17,39 +17,111 @@ export default function ShoppingCart() {
     if (!mounted) return null;
 
     return (
-        <div>
-            <h1>Shopping Cart</h1>
+        <div
+            style={{
+                maxWidth: '800px',
+                margin: '0 auto',
+                textAlign: 'center',
+                padding: '20px',
+            }}
+        >
+            <h1 style={{ marginBottom: '30px' }}>Shopping Cart</h1>
 
             {items.length > 0 ? (
-                <div>
-                    <table>
+                <div style={{ textAlign: 'left' }}>
+                    <table
+                        style={{
+                            width: '100%',
+                            marginBottom: '30px',
+                            borderCollapse: 'collapse',
+                        }}
+                    >
                         <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Subtotal</th>
+                            <tr style={{ background: '#f7f7f7' }}>
+                                <th
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #ddd',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Product
+                                </th>
+                                <th
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #ddd',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Quantity
+                                </th>
+                                <th
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #ddd',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Price
+                                </th>
+                                <th
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #ddd',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Subtotal
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {items.map((item) => (
                                 <tr key={item.slug}>
-                                    <td>
-                                        <Link href={`/product/${item.slug}`}>
+                                    <td
+                                        style={{
+                                            padding: '10px',
+                                            border: '1px solid #ddd',
+                                        }}
+                                    >
+                                        <Link
+                                            href={`/product/${item.slug}`}
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                textDecoration: 'none',
+                                                color: 'inherit',
+                                            }}
+                                        >
                                             <Image
                                                 src={item.image}
                                                 alt={item.name}
                                                 width={50}
                                                 height={50}
-                                            ></Image>
-                                        </Link>
-                                        <Link href={`/product/${item.slug}`}>
-                                            {item.name}
+                                            />
+                                            <span
+                                                style={{
+                                                    marginLeft: '10px',
+                                                }}
+                                            >
+                                                {item.name}
+                                            </span>
                                         </Link>
                                     </td>
-                                    <td>
+                                    <td
+                                        style={{
+                                            padding: '10px',
+                                            border: '1px solid #ddd',
+                                            textAlign: 'center',
+                                        }}
+                                    >
                                         <button
                                             onClick={() => reduceQuantity(item)}
+                                            style={{
+                                                cursor: 'pointer',
+                                                margin: '0 10px',
+                                            }}
                                         >
                                             -1
                                         </button>
@@ -58,21 +130,57 @@ export default function ShoppingCart() {
                                             onClick={() =>
                                                 increaseQuantity(item)
                                             }
+                                            style={{
+                                                cursor: 'pointer',
+                                                margin: '0 10px',
+                                            }}
                                         >
                                             +1
                                         </button>
                                     </td>
-                                    <td>{item.price}</td>
-                                    <td>{item.quantity * item.price}</td>
+                                    <td
+                                        style={{
+                                            padding: '10px',
+                                            border: '1px solid #ddd',
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        $ {item.price}
+                                    </td>
+                                    <td
+                                        style={{
+                                            padding: '10px',
+                                            border: '1px solid #ddd',
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        $ {item.quantity * item.price}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td>Total In Cart</td>
+                                <td
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #ddd',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Total In Cart
+                                </td>
                                 <td></td>
                                 <td></td>
-                                <td>
+                                <td
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #ddd',
+                                        fontWeight: 'bold',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    ${' '}
                                     {items.reduce(
                                         (acc, i) => acc + i.price * i.quantity,
                                         0
@@ -81,14 +189,30 @@ export default function ShoppingCart() {
                             </tr>
                         </tfoot>
                     </table>
-                    <button onClick={() => router.push('/checkout')}>
+                    <button
+                        onClick={() => router.push('/checkout')}
+                        style={{ padding: '10px 20px', cursor: 'pointer' }}
+                    >
                         Checkout
                     </button>
                 </div>
             ) : (
-                <div>
-                    <h2>Your cart is empty</h2>
-                    <Link href="/"> Go shopping</Link>
+                <div style={{ margin: '30px 0' }}>
+                    <h2 style={{ marginBottom: '20px' }}>Your cart is empty</h2>
+                    <Link href="/">
+                        <a
+                            style={{
+                                padding: '10px 15px',
+                                textDecoration: 'none',
+                                color: '#007bff',
+                                border: '1px solid #ddd',
+                                borderRadius: '5px',
+                            }}
+                        >
+                            {' '}
+                            Go shopping
+                        </a>
+                    </Link>
                 </div>
             )}
         </div>
