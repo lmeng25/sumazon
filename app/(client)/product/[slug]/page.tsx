@@ -1,6 +1,5 @@
 import ProductCard from '@/components/Product/ProductCard/ProductCard';
 import productFilter from '@/lib/ProductFilter';
-import ProductModel from '@/lib/models/ProductModel';
 import Link from 'next/link';
 
 export async function Metadata(props: any) {
@@ -24,7 +23,18 @@ export default async function ProductDetails(props: any) {
     return (
         <>
             <div>
-                <Link href="/">Back to homepage</Link>
+                <Link
+                    href="/"
+                    style={{
+                        padding: '10px 15px',
+                        textDecoration: 'none',
+                        border: '1px solid #ddd',
+                        borderRadius: '5px',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                    }}
+                >
+                    Back to homepage
+                </Link>
             </div>
             <ProductCard product={product} />
         </>
