@@ -1,0 +1,92 @@
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.headerLinks {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.headerLinks li {
+    list-style: none;
+    margin-right: 20px;
+}
+
+.headerLinks a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.headerLinks a:hover {
+    color: #007bff;
+}
+
+.headerLinks div {
+    background-color: #dcdad9;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.headerUserActions > :not(:last-child) {
+    margin-right: 20px;
+}
+
+.signinLink {
+    background-color: #bfbfc0;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signOutButton {
+    background-color: #20088d;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signOutButton:hover {
+    background-color: #555555;
+}
+
+.cartContainer {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.cartCount {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 5px;
+    display: inline-block;
+    text-align: center;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.cartLink {
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+    display: inline-block;
+}
