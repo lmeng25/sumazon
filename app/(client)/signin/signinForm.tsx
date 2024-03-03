@@ -36,21 +36,77 @@ const SigninForm = () => {
     };
 
     return (
-        <div>
-            <h1>Sign In</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label>Email</label>
-                    <input type="email" {...register('email')} />
+        <div
+            style={{
+                maxWidth: '400px',
+                margin: '40px auto',
+                padding: '20px',
+                textAlign: 'center',
+                border: '1px solid #ddd',
+                borderRadius: '5px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+        >
+            <h1 style={{ marginBottom: '30px' }}>Sign In</h1>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                style={{ display: 'flex', flexDirection: 'column' }}
+            >
+                <div style={{ marginBottom: '20px' }}>
+                    <label style={{ display: 'block', marginBottom: '8px' }}>
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        {...register('email')}
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            marginBottom: '10px',
+                            border: '1px solid #ddd',
+                            borderRadius: '4px',
+                        }}
+                    />
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" {...register('password')} />
+                <div style={{ marginBottom: '20px' }}>
+                    <label style={{ display: 'block', marginBottom: '8px' }}>
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        {...register('password')}
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            marginBottom: '10px',
+                            border: '1px solid #ddd',
+                            borderRadius: '4px',
+                        }}
+                    />
                 </div>
-                <button type="submit">Sign In</button>
+                <button
+                    type="submit"
+                    style={{
+                        padding: '10px',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontSize: '16px',
+                    }}
+                >
+                    Sign In
+                </button>
             </form>
-            <div>
-                <Link href="/register">Register</Link>
+            <div style={{ marginTop: '20px' }}>
+                Need an account?{' '}
+                <Link
+                    href="/register"
+                    style={{ color: '#007bff', textDecoration: 'none' }}
+                >
+                    Register
+                </Link>
             </div>
         </div>
     );
