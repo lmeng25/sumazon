@@ -50,33 +50,95 @@ export default function CreateProduct() {
     };
 
     return (
-        <div>
-            <h1>Create Product</h1>
-            <form onSubmit={handleSubmit(createProduct)}>
+        <div
+            style={{
+                maxWidth: '600px',
+                margin: '40px auto',
+                padding: '20px',
+                border: '1px solid #ddd',
+                borderRadius: '5px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                backgroundColor: '#fff',
+            }}
+        >
+            <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>
+                Create Product
+            </h1>
+            <form
+                onSubmit={handleSubmit(createProduct)}
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                }}
+            >
                 <div>
-                    <label htmlFor="name">Name</label>
+                    <label
+                        htmlFor="name"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Name
+                    </label>
                     <input
                         {...register('name', {
                             required: 'Name is required',
                         })}
                         id="name"
                         type="text"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.name && <p>{errors.name.message}</p>}
+                    {errors.name && (
+                        <p style={{ color: 'red' }}>{errors.name.message}</p>
+                    )}
                 </div>
                 <div>
-                    <label htmlFor="slug">Slug</label>
+                    <label
+                        htmlFor="slug"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Slug
+                    </label>
                     <input
                         {...register('slug', {
                             required: 'Slug is required',
                         })}
                         id="slug"
                         type="text"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.slug && <p>{errors.slug.message}</p>}
+                    {errors.slug && (
+                        <p style={{ color: 'red' }}>{errors.slug.message}</p>
+                    )}
                 </div>
                 <div>
-                    <label htmlFor="price">Price</label>
+                    <label
+                        htmlFor="price"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Price
+                    </label>
                     <input
                         {...register('price', {
                             required: 'Price is required',
@@ -84,34 +146,86 @@ export default function CreateProduct() {
                         })}
                         id="price"
                         type="number"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.price && <p>{errors.price.message}</p>}
+                    {errors.price && (
+                        <p style={{ color: 'red' }}>{errors.price.message}</p>
+                    )}
                 </div>
                 <div>
-                    <label htmlFor="category">Category</label>
+                    <label
+                        htmlFor="category"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Category
+                    </label>
                     <input
                         {...register('category', {
                             required: 'Category is required',
                         })}
                         id="category"
                         type="text"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.category && <p>{errors.category.message}</p>}
+                    {errors.category && (
+                        <p style={{ color: 'red' }}>
+                            {errors.category.message}
+                        </p>
+                    )}
                 </div>
                 <div>
-                    <label htmlFor="brand">Brand</label>
+                    <label
+                        htmlFor="brand"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Brand
+                    </label>
                     <input
                         {...register('brand', {
                             required: 'Brand is required',
                         })}
                         id="brand"
                         type="text"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.brand && <p>{errors.brand.message}</p>}
+                    {errors.brand && (
+                        <p style={{ color: 'red' }}>{errors.brand.message}</p>
+                    )}
                 </div>
-
                 <div>
-                    <label htmlFor="quantity">Quantity</label>
+                    <label
+                        htmlFor="quantity"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Quantity
+                    </label>
                     <input
                         {...register('quantity', {
                             required: 'Quantity is required',
@@ -119,32 +233,91 @@ export default function CreateProduct() {
                         })}
                         id="quantity"
                         type="number"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.quantity && <p>{errors.quantity.message}</p>}
+                    {errors.quantity && (
+                        <p style={{ color: 'red' }}>
+                            {errors.quantity.message}
+                        </p>
+                    )}
                 </div>
                 <div>
-                    <label htmlFor="description">Description</label>
+                    <label
+                        htmlFor="description"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Description
+                    </label>
                     <input
                         {...register('description', {
                             required: 'Description is required',
                         })}
                         id="description"
                         type="text"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.description && <p>{errors.description.message}</p>}
+                    {errors.description && (
+                        <p style={{ color: 'red' }}>
+                            {errors.description.message}
+                        </p>
+                    )}
                 </div>
                 <div>
-                    <label htmlFor="image">Image</label>
+                    <label
+                        htmlFor="image"
+                        style={{
+                            display: 'block',
+                            marginBottom: '8px',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Image
+                    </label>
                     <input
                         {...register('image', {
                             required: 'Image is required',
                         })}
                         id="image"
                         type="text"
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
                     />
-                    {errors.image && <p>{errors.image.message}</p>}
+                    {errors.image && (
+                        <p style={{ color: 'red' }}>{errors.image.message}</p>
+                    )}
                 </div>
-                <button type="submit" disabled={isCreating}>
+                <button
+                    type="submit"
+                    disabled={isCreating}
+                    style={{
+                        padding: '10px 20px',
+                        marginTop: '20px',
+                        width: '30%',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                    }}
+                >
                     {isCreating ? 'Creating...' : 'Create'}
                 </button>
             </form>
