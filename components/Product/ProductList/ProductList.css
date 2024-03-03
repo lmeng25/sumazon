@@ -59,3 +59,9 @@
 .stockAvailability {
     font-size: 0.9em;
 }
+
+.productTitle {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}

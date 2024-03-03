@@ -10,34 +10,39 @@ export default async function ProductList() {
 
     if (products?.length) {
         productList = (
-            <div className="productListContainer">
-                {products.map((product) => (
-                    <div key={product.slug} className="productItem">
-                        <h2>{product.name}</h2>
-                        <div>
-                            <Link href={`/product/${product.slug}`}>
-                                <Image
-                                    src={product.image}
-                                    alt={product.name}
-                                    width={200}
-                                    height={200}
-                                />
-                            </Link>
+            <div>
+                <h1 className="productTitle">Latest Products</h1>
+                <div className="productListContainer">
+                    {products.map((product) => (
+                        <div key={product.slug} className="productItem">
+                            <h2>{product.name}</h2>
+                            <div>
+                                <Link href={`/product/${product.slug}`}>
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                        width={200}
+                                        height={200}
+                                    />
+                                </Link>
+                            </div>
+                            <div className="productPrice">{`$${product.price}`}</div>{' '}
+                            <div
+                                className="stockAvailability"
+                                style={{
+                                    color:
+                                        product.quantity === 0
+                                            ? 'red'
+                                            : 'inherit',
+                                }}
+                            >
+                                {product.quantity === 0
+                                    ? 'Out of stock'
+                                    : 'In stock'}
+                            </div>
                         </div>
-                        <div className="productPrice">{`$${product.price}`}</div>{' '}
-                        <div
-                            className="stockAvailability"
-                            style={{
-                                color:
-                                    product.quantity === 0 ? 'red' : 'inherit',
-                            }}
-                        >
-                            {product.quantity === 0
-                                ? 'Out of stock'
-                                : 'In stock'}
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         );
     }
