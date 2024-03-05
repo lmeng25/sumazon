@@ -78,39 +78,91 @@ export default function ProductForm({ productId }: { productId: string }) {
         pattern?: ValidationRule<RegExp>;
     }) => (
         <div>
-            <label htmlFor={id}>{name}</label>
             <div>
-                <input
-                    type="text"
-                    id={id}
-                    {...register(id, {
-                        required: required && `${name} is required`,
-                        pattern,
-                    })}
-                />
-                {errors[id]?.message && <div>{errors[id]?.message}</div>}
+                <label
+                    htmlFor={id}
+                    style={{
+                        display: 'block',
+                        marginBottom: '8px',
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {name}
+                </label>
+                <div>
+                    <input
+                        type="text"
+                        id={id}
+                        {...register(id, {
+                            required: required && `${name} is required`,
+                            pattern,
+                        })}
+                        style={{
+                            width: '100%',
+                            padding: '10px',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                        }}
+                    />
+                    {errors[id]?.message && <div>{errors[id]?.message}</div>}
+                </div>
             </div>
         </div>
     );
 
     return (
-        <form onSubmit={handleSubmit(formSubmit)}>
-            <FormInput id="name" name="Name" required />
-            <FormInput id="slug" name="Slug" required />
-            <FormInput id="price" name="Price" required pattern={/^\d+$/} />
-            <FormInput id="image" name="Image" />
-            <FormInput id="category" name="Category" required />
-            <FormInput id="brand" name="Brand" required />
-            <FormInput
-                id="quantity"
-                name="Quantity"
-                required
-                pattern={/^\d+$/}
-            />
-            <FormInput id="description" name="Description" required />
-            <button type="submit" disabled={isUpdating}>
-                {isUpdating ? 'Updating...' : 'Update'}
-            </button>
-        </form>
+        <div
+            style={{
+                maxWidth: '600px',
+                margin: '40px auto',
+                padding: '20px',
+                border: '1px solid #ddd',
+                borderRadius: '5px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                backgroundColor: '#fff',
+            }}
+        >
+            <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>
+                Edit Product
+            </h1>
+            <form
+                onSubmit={handleSubmit(formSubmit)}
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                }}
+            >
+                <FormInput id="name" name="Name" required />
+                <FormInput id="slug" name="Slug" required />
+                <FormInput id="price" name="Price" required pattern={/^\d+$/} />
+                <FormInput id="image" name="Image" />
+                <FormInput id="category" name="Category" required />
+                <FormInput id="brand" name="Brand" required />
+                <FormInput
+                    id="quantity"
+                    name="Quantity"
+                    required
+                    pattern={/^\d+$/}
+                />
+                <FormInput id="description" name="Description" required />
+                <button
+                    type="submit"
+                    disabled={isUpdating}
+                    style={{
+                        padding: '10px 20px',
+                        marginTop: '20px',
+                        width: '30%',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                    }}
+                >
+                    {isUpdating ? 'Updating...' : 'Update'}
+                </button>
+            </form>
+        </div>
     );
 }
