@@ -199,19 +199,16 @@ export default function ShoppingCart() {
             ) : (
                 <div style={{ margin: '30px 0' }}>
                     <h2 style={{ marginBottom: '20px' }}>Your cart is empty</h2>
-                    <Link href="/">
-                        <a
-                            style={{
-                                padding: '10px 15px',
-                                textDecoration: 'none',
-                                color: '#007bff',
-                                border: '1px solid #ddd',
-                                borderRadius: '5px',
-                            }}
-                        >
-                            {' '}
-                            Go shopping
-                        </a>
+                    <Link
+                        href="/"
+                        style={{
+                            padding: '10px 15px',
+                            textDecoration: 'none',
+                            color: '#007bff',
+                            fontSize: '18px',
+                        }}
+                    >
+                        Go shopping
                     </Link>
                 </div>
             )}
