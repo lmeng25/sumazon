@@ -1,5 +1,4 @@
 'use client';
-import { useCartStore } from '@/lib/hooks/useCartStore';
 import toast, { Toaster } from 'react-hot-toast';
 import { SWRConfig } from 'swr';
 
@@ -8,14 +7,10 @@ export default function ClientProviders({
 }: {
     children: React.ReactNode;
 }) {
-    const updateStore = () => {
-        useCartStore.persist.rehydrate();
-    };
-
     return (
         <SWRConfig
             value={{
-                onError: (error, key) => {
+                onError: (error) => {
                     toast.error(error.message);
                 },
                 fetcher: async (resource, init) => {
