@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import useCartService from '@/lib/hooks/useCartStore';
 import toast from 'react-hot-toast';
@@ -9,12 +9,7 @@ const CheckoutForm = () => {
     const router = useRouter();
     const { items, total, shippingAddress, updateShippingAddress, clearCart } =
         useCartService();
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        formState: { errors },
-    } = useForm({
+    const { register, handleSubmit, setValue } = useForm({
         defaultValues: {
             address: shippingAddress,
         },
