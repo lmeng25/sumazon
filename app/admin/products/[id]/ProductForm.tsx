@@ -6,7 +6,6 @@ import { ValidationRule, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 export default function ProductForm({ productId }: { productId: string }) {
-    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [isUpdating, setIsUpdating] = useState(false);
@@ -25,7 +24,6 @@ export default function ProductForm({ productId }: { productId: string }) {
             const res = await fetch(`/api/admin/products/${productId}`);
             const data = await res.json();
             if (!res.ok) throw new Error(data.message);
-            setProduct(data);
             setLoading(false);
             Object.keys(data).forEach((key) => {
                 setValue(key as keyof Product, data[key]);
