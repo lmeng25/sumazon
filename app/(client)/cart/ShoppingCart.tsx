@@ -1,5 +1,4 @@
 'use client';
-
 import useCartService from '@/lib/hooks/useCartStore';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 export default function ShoppingCart() {
     const router = useRouter();
-    const { items, total, increaseQuantity, reduceQuantity } = useCartService();
+    const { items, increaseQuantity, reduceQuantity } = useCartService();
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
         setMounted(true);
