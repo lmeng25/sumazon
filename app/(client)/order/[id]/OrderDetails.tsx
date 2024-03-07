@@ -18,7 +18,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
             },
         })
             .then((response) => response.json())
-            .then((orderData) => {
+            .then(() => {
                 toast.success('Successfully paid your order! ');
             });
     };
