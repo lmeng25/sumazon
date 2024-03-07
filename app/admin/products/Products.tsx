@@ -1,51 +1,21 @@
 'use client';
 import { Product } from '@/lib/models/ProductModel';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
-import toast from 'react-hot-toast';
 
 export default function Products() {
     const { data: products, error } = useSWR(`/api/admin/products`);
 
-    const router = useRouter();
-
     const { trigger: deleteProduct } = useSWRMutation(
         `/api/admin/products`,
         async (url, { arg }: { arg: { productId: string } }) => {
-            const toastId = toast.loading('Deleting product...');
             const res = await fetch(`${url}/${arg.productId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            const data = await res.json();
-            res.ok
-                ? toast.success('Product deleted successfully', {
-                      id: toastId,
-                  })
-                : toast.error(data.message, {
-                      id: toastId,
-                  });
-        }
-    );
-
-    const { trigger: createProduct, isMutating: isCreating } = useSWRMutation(
-        `/api/admin/products`,
-        async (url) => {
-            const res = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            const data = await res.json();
-            if (!res.ok) return toast.error(data.message);
-
-            toast.success('Product created successfully');
-            router.push(`/admin/products/${data.product._id}`);
         }
     );
 
