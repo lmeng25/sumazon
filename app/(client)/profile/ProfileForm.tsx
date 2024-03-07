@@ -17,7 +17,7 @@ type Inputs = {
 const ProfileForm = () => {
     const router = useRouter();
     const { data: session, update } = useSession();
-    const { register, handleSubmit, getValues, setValue } = useForm<Inputs>();
+    const { register, handleSubmit, setValue } = useForm<Inputs>();
 
     useEffect(() => {
         if (session && session.user) {
