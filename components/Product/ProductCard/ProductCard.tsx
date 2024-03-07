@@ -7,8 +7,6 @@ import { convertToObj } from '@/lib/utils';
 import './ProductCard.css';
 
 export default function ProductCard({ product }: { product: Product }) {
-    const { name, slug, image, price, brand, description, category, quantity } =
-        product;
     return (
         <div className="productContainer">
             <div className="productImageContainer">
