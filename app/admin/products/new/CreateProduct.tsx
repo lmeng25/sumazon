@@ -1,13 +1,11 @@
 'use client';
 import { Product } from '@/lib/models/ProductModel';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { ValidationRule, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 export default function CreateProduct() {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
     const [isCreating, setIsCreating] = useState(false);
     const router = useRouter();
 
@@ -15,7 +13,6 @@ export default function CreateProduct() {
         register,
         handleSubmit,
         formState: { errors },
-        setValue,
     } = useForm<Product>({
         defaultValues: {
             name: 'Awesome Shirt ' + Math.trunc((Math.random() * 1000) % 1000),
